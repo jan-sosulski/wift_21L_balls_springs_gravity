@@ -140,9 +140,18 @@ def start_game(data):
 
 #[1,2] [3,0] <- 1, 2 springs and 3 without spring
 if __name__ == '__main__':
-    if len(sys.argv) >= 1:
-        springs_description = sys.argv
+    try:
+        if len(sys.argv) >= 1:
+            springs_description = sys.argv
 
-        data = convert_data(sys.argv)
+            data = convert_data(sys.argv)
 
-        start_game(data)
+            start_game(data)
+        else:
+            print("Invalid program call arguments!")
+
+    except Exception as err:
+        print(err)
+
+    finally:
+        print("The simulation ran correctly!")
