@@ -141,7 +141,7 @@ def start_game(data):
 #[1,2] [3,0] <- 1, 2 springs and 3 without spring
 if __name__ == '__main__':
     try:
-        if len(sys.argv) >= 1:
+        if len(sys.argv) >= 2:
             springs_description = sys.argv
 
             data = convert_data(sys.argv)
