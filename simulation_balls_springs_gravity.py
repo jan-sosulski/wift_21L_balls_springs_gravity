@@ -60,12 +60,12 @@ def make_simple_gravity(balls):
 
             mass_other = other_ball.get_mass()
 
-            if r >= 10:
+            if r >= 1:
                 gravity_vector = (mass_x*mass_other*(1/r**3) * vector[0], mass_x*mass_other*(1/r**3) * vector[1])
                 gravity_vectors.append(gravity_vector)
 
         for gravity in gravity_vectors:
-            ball_x.shape.body.apply_impulse_at_local_point((gravity[0]*1000, gravity[1]*1000), (0,0))
+            ball_x.shape.body.apply_impulse_at_local_point((-gravity[0]*1000, -gravity[1]*1000), (0,0))
 
 def create_all_springs(space, balls, springs_des):
     for i in springs_des:
@@ -139,6 +139,7 @@ def start_game(data):
         clock.tick(120)
 
 #[1,2] [3,0] <- 1, 2 springs and 3 without spring
+#test [1,2] [3,0] [2,4] [5,2] [4,6] [7,0]
 if __name__ == '__main__':
     try:
         if len(sys.argv) >= 2:
